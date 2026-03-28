@@ -1,0 +1,79 @@
+# This file specifies files that are *not* uploaded to Google Cloud
+# using gcloud. It follows the same syntax as .gitignore, with the addition of
+# "#!include" directives (which insert the entries of the given .gitignore-style
+# file at that point).
+
+# Node modules
+node_modules/
+client/node_modules/
+
+# Development files
+.git/
+.gitignore
+.github/
+*.md
+!README.md
+.env
+.env.*
+!.env.example
+
+# Client source files (we deploy built version)
+client/src/
+client/public/
+client/index.html
+client/vite.config.js
+client/tailwind.config.js
+client/postcss.config.js
+client/.eslintrc.cjs
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Tests and coverage
+tests/
+coverage/
+.nyc_output/
+jest.config.json
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+*.tgz
+.npm/
+.eslintcache
+
+# Documentation (except README)
+CONTRIBUTING.md
+CHANGELOG.md
+SECURITY.md
+DEPLOYMENT.md
+EXAMPLES.md
+FAQ.md
+QUICKSTART.md
+ARCHITECTURE.md
+SETUP.md
+API_DOCS.md
+DEPLOY_GCLOUD.md
+
+# Scripts
+setup.ps1
+
+# Uploads directory
+uploads/
+temp/
+
+# Firebase
+.firebase/
+firebase.json
+.firebaserc
