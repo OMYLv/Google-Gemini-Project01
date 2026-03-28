@@ -77,7 +77,7 @@ function App() {
       <div className="relative z-10">
         <Header />
         
-        <main className="container mx-auto px-6 py-12 max-w-7xl">
+        <main id="main-content" className="container mx-auto px-6 py-12 max-w-7xl" role="main" aria-label="Main content">
           <StatsBar stats={stats} />
           
           <div className="mb-10">

@@ -1,0 +1,41 @@
+{
+  "name": "Universal Bridge AI",
+  "short_name": "Bridge AI",
+  "description": "Gemini-powered universal bridge between human intent and complex systems",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities", "health"],
+  "shortcuts": [
+    {
+      "name": "Medical Analysis",
+      "short_name": "Medical",
+      "description": "Quick access to medical analysis",
+      "url": "/?useCase=medical",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Traffic Report",
+      "short_name": "Traffic",
+      "description": "Quick access to traffic analysis",
+      "url": "/?useCase=traffic",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

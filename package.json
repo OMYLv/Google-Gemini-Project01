@@ -4,6 +4,8 @@
   "description": "Gemini-powered universal bridge between human intent and complex systems",
   "main": "server/index.js",
   "scripts": {
+    "gcp-build": "npm install --prefix client && npm run build --prefix client",
+    "start": "node server/index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon server/index.js",
     "client": "cd client && npm run dev",
@@ -18,6 +20,11 @@
   "license": "MIT",
   "dependencies": {
     "@google/generative-ai": "^0.2.1",
+    "@google-cloud/storage": "^7.7.0",
+    "@google-cloud/vision": "^4.0.2",
+    "@google-cloud/language": "^6.2.0",
+    "@google-cloud/logging": "^11.0.0",
+    "@google-cloud/monitoring": "^4.0.0",
     "express": "^4.18.2",
     "cors": "^2.8.5",
     "helmet": "^7.1.0",
@@ -27,7 +34,8 @@
     "joi": "^17.11.0",
     "winston": "^3.11.0",
     "compression": "^1.7.4",
-    "express-validator": "^7.0.1"
+    "express-validator": "^7.0.1",
+    "node-cache": "^5.1.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.23.6",

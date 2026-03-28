@@ -40,13 +40,20 @@ const USE_CASES = [
 ];
 
 export default function UseCaseSelector({ selected, onSelect }) {
+  const handleKeyDown = (e, useCaseId) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      onSelect(useCaseId);
+    }
+  };
+
   return (
-    <div className="card border-2 border-white/20">
-      <h2 className="text-2xl font-black text-white mb-6 flex items-center gap-3">
-        <span className="bg-gradient-to-r from-purple-500 to-pink-500 w-1.5 h-8 rounded-full animate-pulse"></span>
+    <section className="card border-2 border-white/20" aria-labelledby="use-case-heading">
+      <h2 id="use-case-heading" className="text-2xl font-black text-white mb-6 flex items-center gap-3">
+        <span className="bg-gradient-to-r from-purple-500 to-pink-500 w-1.5 h-8 rounded-full animate-pulse" aria-hidden="true"></span>
         Select Use Case
       </h2>
-      <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-5 gap-4" role="group" aria-label="Use case options">
         {USE_CASES.map((useCase) => {
           const Icon = useCase.icon;
           const isSelected = selected === useCase.id;
@@ -55,8 +62,13 @@ export default function UseCaseSelector({ selected, onSelect }) {
             <button
               key={useCase.id}
               onClick={() => onSelect(useCase.id)}
+              onKeyDown={(e) => handleKeyDown(e, useCase.id)}
+              aria-pressed={isSelected}
+              aria-label={`${useCase.name}: ${useCase.description}`}
+              role="button"
+              tabIndex={0}
               className={clsx(
-                'relative p-6 rounded-2xl transition-all duration-300 border-2 group overflow-hidden',
+                'relative p-6 rounded-2xl transition-all duration-300 border-2 group overflow-hidden focus:outline-none focus:ring-4 focus:ring-purple-500/50',
                 isSelected
                   ? 'border-purple-500 shadow-2xl shadow-purple-500/50 scale-105 bg-gradient-to-br from-purple-500/20 to-pink-500/20'
                   : 'border-white/20 hover:border-purple-400/50 hover:shadow-xl bg-white/5 hover:bg-white/10 backdrop-blur-lg'
@@ -73,7 +85,7 @@ export default function UseCaseSelector({ selected, onSelect }) {
                   <Icon className={clsx(
                     'w-7 h-7 transition-all duration-300 group-hover:scale-110',
                     isSelected ? 'text-white animate-pulse' : 'text-purple-300 group-hover:text-white'
-                  )} strokeWidth={2.5} />
+                  )} strokeWidth={2.5} aria-hidden="true" />
                 </div>
                 <p className={clsx(
                   'font-bold text-base mb-1 transition-all duration-300',
@@ -92,6 +104,6 @@ export default function UseCaseSelector({ selected, onSelect }) {
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }

@@ -18,13 +18,7 @@ client/node_modules/
 !.env.example
 
 # Client source files (we deploy built version)
-client/src/
-client/public/
-client/index.html
-client/vite.config.js
-client/tailwind.config.js
-client/postcss.config.js
-client/.eslintrc.cjs
+
 
 # Logs
 logs/

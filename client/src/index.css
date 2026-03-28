@@ -10,6 +10,16 @@
 }
 
 @layer components {
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .focus\:not-sr-only:focus {
+    @apply static w-auto h-auto p-0 m-0 overflow-visible whitespace-normal;
+    clip: auto;
+  }
+
   .glass-effect {
     @apply bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);

@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "universal-bridge-ai-2026",
     "public": "client/dist",
     "ignore": [
       "firebase.json",
